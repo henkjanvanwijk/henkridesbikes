@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Henk Rides Bikes</title>
+  <meta name="description" content="Henk Rides Bikes — adventure riding, motorcycle builds, maintenance and travel." />
+  <link rel="icon" href="logo.png" />
+  <style>
+    :root{
+      --bg:#ebe6dc;
+      --panel:#f7f2e8;
+      --ink:#111111;
+      --muted:#5f5a50;
+      --orange:#f57c00;
+      --orange-dark:#cf6500;
+      --blue:#25a9f2;
+      --line:rgba(17,17,17,.12);
+      --shadow:0 16px 40px rgba(20,18,14,.14);
+      --radius:26px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 16% 8%, rgba(37,169,242,.18), transparent 28%),
+        radial-gradient(circle at 84% 22%, rgba(245,124,0,.18), transparent 28%),
+        var(--bg);
+      min-height:100vh;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(1120px, calc(100% - 32px)); margin:0 auto; padding:30px 0 42px}
+    .hero{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:22px;
+      align-items:center;
+      min-height:auto;
+    }
+    .card{
+      background:rgba(247,242,232,.86);
+      border:1px solid rgba(255,255,255,.75);
+      box-shadow:var(--shadow);
+      border-radius:var(--radius);
+    }
+    .profile{padding:28px; text-align:center; position:relative; overflow:hidden}
+    .profile:before{content:""; position:absolute; inset:0; background:linear-gradient(135deg, rgba(245,124,0,.12), rgba(37,169,242,.10)); pointer-events:none}
+    .profile > *{position:relative}
+    .logo{width:132px; height:132px; object-fit:cover; border-radius:50%; display:block; margin:0 auto 18px; box-shadow:0 10px 28px rgba(0,0,0,.18)}
+    h1{margin:0; font-size:clamp(38px, 8vw, 74px); line-height:.92; letter-spacing:-.06em; text-transform:uppercase}
+    .tag{margin:14px 0 0; font-weight:800; font-size:clamp(18px, 3vw, 29px); letter-spacing:-.035em}
+    .sub{margin:10px auto 0; color:var(--muted); max-width:600px; line-height:1.55; font-weight:600}
+    .links{display:grid; gap:12px; margin-top:22px}
+    .btn{
+      display:flex; align-items:center; justify-content:space-between; gap:16px; min-width:0;
+      padding:17px 18px; border-radius:18px; background:var(--ink); color:#fff;
+      font-weight:900; letter-spacing:-.015em; transition:.18s transform ease, .18s box-shadow ease, .18s background ease;
+      box-shadow:0 8px 18px rgba(0,0,0,.13);
+    }
+    .btn:hover{transform:translateY(-2px); box-shadow:0 13px 26px rgba(0,0,0,.18); background:#242424}
+    .btn.orange{background:var(--orange)} .btn.orange:hover{background:var(--orange-dark)}
+    .btn.blue{background:var(--blue); color:#061018}
+    .btn .left{display:flex; align-items:center; gap:12px; min-width:0; overflow-wrap:anywhere}.btn .label{min-width:0; overflow-wrap:anywhere}.icon{font-size:22px; flex:0 0 auto}.arrow{opacity:.75; flex:0 0 auto}
+    .panel{padding:24px}
+    .section-title{display:flex; align-items:end; justify-content:space-between; gap:14px; margin-bottom:14px}
+    h2{margin:0; font-size:24px; letter-spacing:-.04em}.eyebrow{font-size:12px; text-transform:uppercase; font-weight:900; color:var(--orange); letter-spacing:.12em}
+    .grid{display:grid; gap:14px}.bike{border:1px solid var(--line); border-radius:20px; padding:18px; background:rgba(255,255,255,.38)}
+    .bike h3{margin:0 0 6px; font-size:20px; letter-spacing:-.03em}.bike p{margin:0; color:var(--muted); line-height:1.5}
+    .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}.chip{font-size:13px; font-weight:800; padding:8px 10px; border-radius:999px; border:1px solid var(--line); background:rgba(255,255,255,.45)}
+    .feature{display:grid; gap:10px}.feature a{color:var(--orange); font-weight:900}.feature p{margin:0; color:var(--muted); line-height:1.55}
+    footer{padding-top:20px; text-align:center; color:var(--muted); font-size:13px; font-weight:700}
+    @media (min-width:860px){
+      .wrap{padding:46px 0 56px}
+      .hero{grid-template-columns:.92fr 1.08fr; gap:28px; min-height:calc(100vh - 102px)}
+      .profile{padding:42px 38px; text-align:left}.profile .logo{margin-left:0; width:154px; height:154px}
+      .profile .sub{margin-left:0}.links{grid-template-columns:1fr 1fr}.links .wide{grid-column:span 2}
+      .desktop-stack{display:grid; gap:22px}.grid.two{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width:520px){.wrap{width:min(100% - 22px, 1120px); padding-top:18px}.profile,.panel{padding:21px}.logo{width:118px;height:118px}.btn{padding:16px 14px; gap:10px}.btn.email .left{align-items:flex-start}.btn.email .label{font-size:15px; line-height:1.25}.btn.email .arrow{display:none}footer{overflow-wrap:anywhere}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <div class="profile card">
+        <img class="logo" src="logo.png" alt="Henk Rides Bikes logo" />
+        <h1>Henk Rides Bikes</h1>
+        <p class="tag">Process over Horsepower.</p>
+        <p class="sub">Adventure riding, motorcycle builds, maintenance and travel. Follow the rides, the wrenching and the occasional bad idea.</p>
+        <div class="links" aria-label="Main links">
+          <a class="btn orange wide" href="https://www.youtube.com/@henkridesbikes/shorts" target="_blank" rel="noopener"><span class="left"><span class="icon">▶</span><span class="label">YouTube Shorts</span></span><span class="arrow">→</span></a>
+          <a class="btn" href="https://www.instagram.com/henkridesbikes/" target="_blank" rel="noopener"><span class="left"><span class="icon">📸</span><span class="label">Instagram</span></span><span class="arrow">→</span></a>
+          <a class="btn" href="https://www.tiktok.com/@henkridesbikes" target="_blank" rel="noopener"><span class="left"><span class="icon">🎵</span><span class="label">TikTok</span></span><span class="arrow">→</span></a>
+          <a class="btn blue email" href="mailto:thedutchridealong@gmail.com"><span class="left"><span class="icon">✉️</span><span class="label">thedutchridealong@gmail.com</span></span><span class="arrow">→</span></a>
+          <a class="btn wide" href="#bikes"><span class="left"><span class="icon">🏍️</span><span class="label">My Bikes</span></span><span class="arrow">↓</span></a>
+        </div>
+      </div>
+      <div class="desktop-stack">
+        <div class="panel card feature">
+          <div class="section-title"><div><div class="eyebrow">Latest</div><h2>Ride along</h2></div></div>
+          <p>Short-form motorcycle content, build updates, maintenance clips and adventure rides.</p>
+          <a href="https://www.youtube.com/@henkridesbikes/shorts" target="_blank" rel="noopener">Open the latest Shorts →</a>
+        </div>
+        <div class="panel card" id="bikes">
+          <div class="section-title"><div><div class="eyebrow">Garage</div><h2>My bikes</h2></div></div>
+          <div class="grid two">
+            <article class="bike"><h3>Honda XL600V Transalp</h3><p>Adventure build for off-road rides, travel and TET-style trips.</p><div class="chips"><span class="chip">Rally style</span><span class="chip">Off-road</span><span class="chip">Travel</span></div></article>
+            <article class="bike"><h3>Suzuki Bandit 600</h3><p>Old-school street bike for maintenance projects, fun rides and budget performance.</p><div class="chips"><span class="chip">Street</span><span class="chip">Wrenching</span><span class="chip">Fun</span></div></article>
+            <article class="bike"><h3>Honda NX650 Dominator</h3><p>The Italy trip bike: simple, reliable and ready for mountain roads and dusty detours.</p><div class="chips"><span class="chip">Italy trip</span><span class="chip">Single cylinder</span><span class="chip">Adventure</span></div></article>
+            <article class="bike"><h3>Suzuki GSX600F</h3><p>The café racer project, also known as the Frikandel Ferrari.</p><div class="chips"><span class="chip">Café racer</span><span class="chip">Project bike</span><span class="chip">Frikandel Ferrari</span></div></article>
+          </div>
+        </div>
+        <div class="panel card">
+          <div class="section-title"><div><div class="eyebrow">Setup</div><h2>Gear I use</h2></div></div>
+          <div class="chips"><span class="chip">Insta360</span><span class="chip">Samsung</span><span class="chip">DJI Mic</span><span class="chip">Cardo</span><span class="chip">GPS mount</span></div>
+        </div>
+      </div>
+    </section>
+    <footer>© <span id="year"></span> Henk Rides Bikes · thedutchridealong@gmail.com</footer>
+  </main>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
