@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Henk Rides Bikes</title>
+  <meta name="description" content="Henk Rides Bikes — old motorcycles, garage builds, riding trips and questionable ideas." />
+  <meta property="og:title" content="Henk Rides Bikes" />
+  <meta property="og:description" content="Motorcycle adventures, garage builds and old bikes taken further than intended." />
+  <meta property="og:image" content="hero.jpg" />
+  <meta name="theme-color" content="#ebe6dc" />
+  <link rel="icon" type="image/png" href="logo.png" />
+  <style>
+    :root{
+      --bg:#ebe6dc;
+      --paper:#f8f2e9;
+      --paper-2:#f3ece1;
+      --text:#11100f;
+      --muted:#625d55;
+      --orange:#f47b00;
+      --blue:#26a7df;
+      --line:rgba(17,16,15,.10);
+      --shadow:0 14px 32px rgba(30,25,18,.12),0 2px 8px rgba(30,25,18,.08);
+      --radius:24px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:
+        radial-gradient(circle at 12% 0%,rgba(255,255,255,.68),transparent 34%),
+        radial-gradient(circle at 92% 6%,rgba(244,123,0,.10),transparent 31%),
+        radial-gradient(circle at 85% 80%,rgba(38,167,223,.08),transparent 34%),
+        var(--bg);
+      color:var(--text);
+      font-family:Arial,Helvetica,sans-serif;
+      min-height:100vh;
+    }
+    a{color:inherit;text-decoration:none}
+    .page{width:min(1120px,100%);margin:0 auto;padding:22px 16px 46px}
+
+    .top{text-align:center;padding:4px 0 14px}
+    .logo{width:104px;height:104px;border-radius:50%;object-fit:cover;background:#fff;border:7px solid rgba(255,255,255,.78);box-shadow:var(--shadow)}
+    h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(42px,10vw,70px);line-height:.92;margin:14px auto 6px;letter-spacing:-.045em;max-width:780px}
+    .tagline{font-family:Georgia,'Times New Roman',serif;font-size:clamp(21px,5vw,34px);font-weight:900;line-height:1.02;margin:0;color:#171514}
+
+    .hero-card{
+      display:grid;
+      gap:16px;
+      background:rgba(248,242,233,.72);
+      border:1px solid rgba(255,255,255,.42);
+      border-radius:30px;
+      box-shadow:var(--shadow);
+      padding:14px;
+      margin:10px 0 18px;
+    }
+    .hero-photo{
+      width:100%;
+      height:clamp(280px,68vw,430px);
+      object-fit:cover;
+      object-position:center 44%;
+      border-radius:22px;
+      display:block;
+      border:1px solid rgba(17,16,15,.06);
+    }
+    .intro{padding:4px 4px 2px;color:var(--muted);font-weight:750;line-height:1.56;font-size:15.5px}
+    .intro p{margin:0 0 10px}.intro p:last-child{margin-bottom:0;color:#161514;font-weight:900}
+
+    .linkgrid{display:grid;gap:12px;margin:0 0 18px}
+    .linkcard{
+      display:grid;
+      grid-template-columns:44px 1fr;
+      align-items:center;
+      gap:12px;
+      min-height:72px;
+      padding:14px 16px;
+      border-radius:20px;
+      background:rgba(248,242,233,.86);
+      box-shadow:var(--shadow);
+      border:1px solid rgba(255,255,255,.38);
+      transition:transform .16s ease, border-color .16s ease, box-shadow .16s ease;
+      overflow:hidden;
+    }
+    .linkcard:hover{transform:translateY(-2px);border-color:rgba(244,123,0,.55);box-shadow:0 19px 36px rgba(30,25,18,.16)}
+    .linkcard.primary{background:linear-gradient(135deg,rgba(244,123,0,.98),rgba(255,152,45,.95));color:#111}
+    .icon{font-size:25px;text-align:center;font-weight:900;line-height:1}
+    .label{font-family:Georgia,'Times New Roman',serif;font-size:23px;font-weight:900;line-height:1.04}
+    .sub{margin-top:4px;color:rgba(17,16,15,.62);font-size:13.5px;font-weight:850;line-height:1.25;word-break:break-word}.primary .sub{color:rgba(17,16,15,.70)}
+
+    .content{display:grid;gap:16px}
+    .section{
+      background:rgba(248,242,233,.74);
+      border:1px solid rgba(255,255,255,.42);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px;
+    }
+    .section h2{font-family:Georgia,'Times New Roman',serif;font-size:30px;line-height:1;margin:0 0 10px;letter-spacing:-.025em}
+    .section p{color:var(--muted);font-weight:750;line-height:1.5;margin:0 0 12px;font-size:14.5px}
+    .garage{display:grid;gap:12px;margin-top:14px}
+    .bike{padding:15px;border-radius:18px;background:rgba(255,255,255,.35);border:1px solid var(--line)}
+    .bike h3{font-family:Georgia,'Times New Roman',serif;font-size:21px;margin:0 0 7px;line-height:1.05}.bike p{margin:0}
+    .chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:11px}.chip{font-size:12px;font-weight:900;line-height:1;padding:8px 10px;border-radius:999px;background:rgba(17,16,15,.07);color:rgba(17,16,15,.72)}
+    .cta{display:inline-flex;align-items:center;margin-top:2px;font-weight:900;font-size:14px;line-height:1;background:#111;color:#fff;border-radius:999px;padding:13px 16px}
+    .footer{text-align:center;color:var(--muted);font-weight:800;font-size:12.5px;line-height:1.4;padding:26px 0 0}
+
+    @media (min-width:760px){
+      .page{padding:34px 28px 62px}
+      .top{padding-bottom:18px}.logo{width:118px;height:118px}h1{margin-top:16px}.tagline{font-size:32px}
+      .hero-card{grid-template-columns:minmax(300px,420px) 1fr;align-items:center;gap:22px;padding:18px;margin:8px 0 22px;border-radius:34px}
+      .hero-photo{height:460px;border-radius:26px}.intro{font-size:16.5px;padding:4px 8px}
+      .main{display:grid;grid-template-columns:350px minmax(0,1fr);gap:22px;align-items:start}.linkgrid{position:sticky;top:24px;margin-bottom:0}.content{gap:18px}.garage{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .section{padding:22px}.section h2{font-size:34px}
+    }
+    @media (min-width:1040px){
+      .hero-card{grid-template-columns:390px 1fr}.hero-photo{height:490px}.intro{font-size:17px;max-width:610px}.linkcard{min-height:78px}.label{font-size:25px}
+    }
+    @media (max-width:410px){
+      .page{padding:18px 14px 42px}.logo{width:94px;height:94px;border-width:6px}h1{font-size:43px}.tagline{font-size:22px}.hero-card{padding:11px;border-radius:24px}.hero-photo{height:300px;border-radius:18px}.intro{font-size:14.5px}.label{font-size:21px}.linkcard{grid-template-columns:40px 1fr;padding:13px 14px;min-height:68px}.section{padding:16px}.section h2{font-size:28px}
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="top">
+      <img class="logo" src="logo.png" alt="Henk Rides Bikes logo">
+      <h1>Henk Rides Bikes</h1>
+      <p class="tagline">Process over Horsepower.</p>
+    </header>
+
+    <section class="hero-card" aria-label="Introduction">
+      <img class="hero-photo" src="hero.jpg" alt="Henk sitting on his Honda Transalp during an off-road ride">
+      <div class="intro">
+        <p>Hey, I'm Henk.</p>
+        <p>I ride motorcycles, build motorcycles, and occasionally do questionable things on motorcycles.</p>
+        <p>Most of my adventures happen on a Honda Transalp, but you'll also find me wrenching on a Suzuki Bandit 600, preparing an NX650 Dominator for Italy, or turning a GSX600F into the legendary Frikandel Ferrari.</p>
+        <p>No showroom builds. No endless budgets. Just motorcycles, tools, mistakes, and adventures.</p>
+        <p>Ride along.</p>
+      </div>
+    </section>
+
+    <div class="main">
+      <nav class="linkgrid" aria-label="Main links">
+        <a class="linkcard primary" href="https://www.instagram.com/henkridesbikes/" target="_blank" rel="noopener">
+          <div class="icon">◎</div><div><div class="label">Instagram</div><div class="sub">Main channel · @henkridesbikes</div></div>
+        </a>
+        <a class="linkcard" href="https://www.youtube.com/@henkridesbikes/shorts" target="_blank" rel="noopener">
+          <div class="icon">▶</div><div><div class="label">YouTube Shorts</div><div class="sub">Short riding clips and garage updates</div></div>
+        </a>
+        <a class="linkcard" href="https://www.tiktok.com/@henkridesbikes" target="_blank" rel="noopener">
+          <div class="icon">♪</div><div><div class="label">TikTok</div><div class="sub">Quick clips, fails and project chaos</div></div>
+        </a>
+        <a class="linkcard" href="mailto:thedutchridealong@gmail.com">
+          <div class="icon">✉</div><div><div class="label">Contact</div><div class="sub">thedutchridealong@gmail.com</div></div>
+        </a>
+      </nav>
+
+      <section class="content">
+        <article class="section">
+          <h2>Current garage</h2>
+          <p>Four bikes, four different excuses to spend too much time in the garage.</p>
+          <div class="garage">
+            <div class="bike">
+              <h3>Honda XL600V Transalp</h3>
+              <p>Adventure build. Old-school allroad, TET-ready and built to take a beating.</p>
+              <div class="chips"><span class="chip">Adventure</span><span class="chip">Off-road</span><span class="chip">Travel</span></div>
+            </div>
+            <div class="bike">
+              <h3>Suzuki Bandit 600</h3>
+              <p>Budget street fun, maintenance projects and the occasional bad idea.</p>
+              <div class="chips"><span class="chip">Street</span><span class="chip">Wheelies</span><span class="chip">Budget</span></div>
+            </div>
+            <div class="bike">
+              <h3>Honda NX650 Dominator</h3>
+              <p>The Italy trip bike. Simple, capable and made for questionable roads.</p>
+              <div class="chips"><span class="chip">Italy trip</span><span class="chip">Dual sport</span><span class="chip">Single cylinder</span></div>
+            </div>
+            <div class="bike">
+              <h3>Suzuki GSX600F</h3>
+              <p>The future café racer, better known as the Frikandel Ferrari.</p>
+              <div class="chips"><span class="chip">Café racer</span><span class="chip">Project bike</span><span class="chip">Frikandel Ferrari</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="section">
+          <h2>Latest stuff</h2>
+          <p>Instagram is the main place for fresh updates. Bigger ride edits and short clips will go to YouTube Shorts.</p>
+          <a class="cta" href="https://www.instagram.com/henkridesbikes/" target="_blank" rel="noopener">Open Instagram →</a>
+        </article>
+
+        <article class="section">
+          <h2>Gear & setup</h2>
+          <p>Camera gear, riding gear and bike setup will live here later. For now: old motorcycles, too many tools and just enough optimism.</p>
+          <div class="chips"><span class="chip">Insta360</span><span class="chip">Phone mount</span><span class="chip">Off-road tyres</span><span class="chip">DIY builds</span></div>
+        </article>
+      </section>
+    </div>
+
+    <footer class="footer">© 2026 Henk Rides Bikes · henkridesbikes.com</footer>
+  </main>
+</body>
+</html>
