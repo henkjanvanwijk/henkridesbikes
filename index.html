@@ -98,7 +98,8 @@
     .section h2{font-family:Georgia,'Times New Roman',serif;font-size:30px;line-height:1;margin:0 0 10px;letter-spacing:-.025em}
     .section p{color:var(--muted);font-weight:750;line-height:1.5;margin:0 0 12px;font-size:14.5px}
     .garage{display:grid;gap:12px;margin-top:14px}
-    .bike{padding:15px;border-radius:18px;background:rgba(255,255,255,.35);border:1px solid var(--line)}
+    .bike{padding:12px;border-radius:18px;background:rgba(255,255,255,.35);border:1px solid var(--line);overflow:hidden}
+    .bike-img{width:100%;height:220px;object-fit:cover;border-radius:14px;margin-bottom:13px;display:block;border:1px solid rgba(17,16,15,.08);background:rgba(17,16,15,.04)}
     .bike h3{font-family:Georgia,'Times New Roman',serif;font-size:21px;margin:0 0 7px;line-height:1.05}.bike p{margin:0}
     .chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:11px}.chip{font-size:12px;font-weight:900;line-height:1;padding:8px 10px;border-radius:999px;background:rgba(17,16,15,.07);color:rgba(17,16,15,.72)}
     .cta{display:inline-flex;align-items:center;margin-top:2px;font-weight:900;font-size:14px;line-height:1;background:#111;color:#fff;border-radius:999px;padding:13px 16px}
@@ -116,6 +117,7 @@
       .hero-card{grid-template-columns:390px 1fr}.hero-photo{height:490px}.intro{font-size:17px;max-width:610px}.linkcard{min-height:78px}.label{font-size:25px}
     }
     @media (max-width:410px){
+      .bike-img{height:190px}
       .page{padding:18px 14px 42px}.logo{width:94px;height:94px;border-width:6px}h1{font-size:43px}.tagline{font-size:22px}.hero-card{padding:11px;border-radius:24px}.hero-photo{height:300px;border-radius:18px}.intro{font-size:14.5px}.label{font-size:21px}.linkcard{grid-template-columns:40px 1fr;padding:13px 14px;min-height:68px}.section{padding:16px}.section h2{font-size:28px}
     }
   </style>
@@ -155,25 +157,29 @@
 
       <section class="content">
         <article class="section">
-          <h2>Current garage</h2>
+          <h2>The Fleet</h2>
           <p>Four bikes, four different excuses to spend too much time in the garage.</p>
           <div class="garage">
             <div class="bike">
+              <img class="bike-img" src="transalp.jpg" alt="Honda XL600V Transalp adventure motorcycle">
               <h3>Honda XL600V Transalp</h3>
               <p>Adventure build. Old-school allroad, TET-ready and built to take a beating.</p>
               <div class="chips"><span class="chip">Adventure</span><span class="chip">Off-road</span><span class="chip">Travel</span></div>
             </div>
             <div class="bike">
-              <h3>Suzuki Bandit 600</h3>
-              <p>Budget street fun, maintenance projects and the occasional bad idea.</p>
-              <div class="chips"><span class="chip">Street</span><span class="chip">Wheelies</span><span class="chip">Budget</span></div>
-            </div>
-            <div class="bike">
+              <img class="bike-img" src="dominator.jpg" alt="Honda NX650 Dominator by the river in Rotterdam">
               <h3>Honda NX650 Dominator</h3>
               <p>The Italy trip bike. Simple, capable and made for questionable roads.</p>
               <div class="chips"><span class="chip">Italy trip</span><span class="chip">Dual sport</span><span class="chip">Single cylinder</span></div>
             </div>
             <div class="bike">
+              <img class="bike-img" src="bandit.jpg" alt="Red Suzuki Bandit 600 street motorcycle">
+              <h3>Suzuki Bandit 600</h3>
+              <p>Budget street fun, maintenance projects and the occasional bad idea.</p>
+              <div class="chips"><span class="chip">Street</span><span class="chip">Wheelies</span><span class="chip">Budget</span></div>
+            </div>
+            <div class="bike">
+              <img class="bike-img" src="gsx600f.jpg" alt="Suzuki GSX600F project bike named Frikandel Ferrari">
               <h3>Suzuki GSX600F</h3>
               <p>The future café racer, better known as the Frikandel Ferrari.</p>
               <div class="chips"><span class="chip">Café racer</span><span class="chip">Project bike</span><span class="chip">Frikandel Ferrari</span></div>
